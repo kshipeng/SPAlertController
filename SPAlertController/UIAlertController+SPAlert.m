@@ -9,7 +9,7 @@
 #import "UIAlertController+SPAlert.h"
 
 @implementation UIAlertController (SPAlert)
-+ (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(UIAlertControllerStyle)preferredStyle handler:(void (^ _Nullable)(UIAlertAction *))handler cancelButtonTitle:(nullable NSString *)cancelButtonTitle otherButtonTitles:(nullable NSString *)otherButtonTitles, ... {
++ (UIAlertController *)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(UIAlertControllerStyle)preferredStyle handler:(void (^ _Nullable)(UIAlertAction * _Nonnull))handler cancelButtonTitle:(nullable NSString *)cancelButtonTitle otherButtonTitles:(nullable NSString *)otherButtonTitles, ... {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:preferredStyle];
     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:handler];
@@ -25,8 +25,8 @@
         NSString *otherString;
         //NSLog(@"%@",otherButtonTitles); //输出第一个字符串
         UIAlertAction *alertAction = [UIAlertAction actionWithTitle:otherButtonTitles style:UIAlertActionStyleDefault handler:handler];
-        
         [alertController addAction:alertAction];
+        
         while (1) {
             //va_arg: 第二个参数是获取了类型。然后返回这个指定类型的值
             //并把args的位置指向变参表的下一个变量位置
@@ -36,7 +36,6 @@
             }else{
                 //NSLog(@"%@",otherString);
                 UIAlertAction *alertAction = [UIAlertAction actionWithTitle:otherString style:UIAlertActionStyleDefault handler:handler];
-                
                 [alertController addAction:alertAction];
             }
         }
